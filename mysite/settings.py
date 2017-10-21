@@ -25,7 +25,7 @@ SECRET_KEY = 'nq#2x!%snqs$mnc*e!l6_4hc$)*f!(njo53@5axs1zu@$%x8&$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'amorphus.pythonanywhere.com']
 
 
 # Application definition
