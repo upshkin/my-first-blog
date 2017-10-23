@@ -4,22 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Amorphus's Blog</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic">
   <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
-    <div class="page-header">
-        <h1><a href="/">Django Amorphus Blog</a></h1>
+<div class="page-header">
+  {% if user.is_authenticated %}
+  {% block buttons %}
+  <a href="{% url 'post_new' %}" class="top-menu"><span
+      class="glyphicon glyphicon-plus"></span></a>
+  {% endblock %}
+  {% endif %}
+  <h1><a href="/">Django Amorphus Blog</a></h1>
+</div>
+<div class="content container">
+  <div class="row">
+    <div class="col-md-8">
+      {% block content %}
+      {% endblock %}
     </div>
-    <div class="content container">
-        <div class="row">
-            <div class="col-md-8">
-            {% block content %}
-            {% endblock %}
-            </div>
-        </div>
-    </div>
+  </div>
+</div>
 </body>
 </html>
