@@ -4,10 +4,10 @@
   {% for post in posts %}
     <div class="post">
       <div class="date">
-        <p>опубликован: {{ post.publish_date }}</p>
+        <p class="date">создан: {{ post.create_date|date:'d.m.Y' }}</p>
       </div>
       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-      <p>{{ post.text|truncatechars:400 }}</p>
+      <p>{{ post.text|truncatechars:200 }}</p>
     </div>
   {% endfor %}
 {% endblock %}

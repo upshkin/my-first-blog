@@ -1,19 +1,18 @@
 {% extends 'blog/base.html' %}
 
-  {% block buttons %}
-  <a href="{% url 'post_new' %}" class="top-menu"><span
-      class="glyphicon glyphicon-plus"></span></a>
-  <a class="top-menu" href="{% url 'post_edit' pk=post.pk %}"><span
-        class="glyphicon glyphicon-edit"></span></a>
-  {% endblock %}
-
 {% block content %}
   <div class="post">
     {% if post.publish_date %}
       <div class="date">
         {{ post.publish_date }}
       </div>
+    {% else %}
+      <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Опубликовать</a>
     {% endif %}
+    <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}"><span
+        class="glyphicon glyphicon-remove"></span></a>
+    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span
+        class="glyphicon glyphicon-edit"></span></a>
     <h1>{{ post.title }}</h1>
     <p>{{ post.text|linebreaksbr }}</p>
   </div>

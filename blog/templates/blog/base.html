@@ -13,10 +13,13 @@
 <body>
 <div class="page-header">
   {% if user.is_authenticated %}
-  {% block buttons %}
-  <a href="{% url 'post_new' %}" class="top-menu"><span
-      class="glyphicon glyphicon-plus"></span></a>
-  {% endblock %}
+    <a href="{% url 'post_new' %}" class="top-menu"><span
+        class="glyphicon glyphicon-plus"></span></a>
+    <a href="{% url 'post_draft_list' %}" class="top-menu"><span
+        class="glyphicon glyphicon-th-list"></span></a>
+  {% else %}
+    <a href="{% url 'login' %}" class="top-menu"><span
+        class="glyphicon glyphicon-lock"></span></a>
   {% endif %}
   <h1><a href="/">Django Amorphus Blog</a></h1>
 </div>

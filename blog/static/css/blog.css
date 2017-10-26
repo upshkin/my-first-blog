@@ -21,9 +21,9 @@ h1, h2, h3, h4 {
 .date {
     color: #828282;
 }
-
-.post .date {
+.post > a.btn {
     float: right;
+    margin-left:5px;
 }
 
 .save {
